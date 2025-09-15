@@ -41,6 +41,7 @@ QgsProject.instance().layerTreeRoot().addLayer(vlayer)
 
 feature_name="Boundary"  # "Boundary", "Blocks" or "Roads" or "Areas"
 
+
 if feature_name=='Boundary':
     feature_num='0' 
 elif feature_name=='Blocks':
@@ -56,6 +57,8 @@ root = QgsProject.instance().layerTreeRoot()
 
 # Create group in the layer tree
 mygroup = root.addGroup(group_name)
+
+directory=dir_prefix+city+'/'+city+'_'+'Blocks'+'/'+city+'_'+group+'/'
 
 # load vector layers
 for files in os.listdir(directory):
@@ -247,3 +250,5 @@ for f in layer.getFeatures():
     layer.changeAttributeValue(f.id(), index_long, cent_pt.x())
 
 layer.commitChanges()
+
+
